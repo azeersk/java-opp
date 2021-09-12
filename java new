@@ -1,0 +1,87 @@
+import java.util.Scanner;
+
+public class Product {
+    String Name;
+    float Rating;
+    float Quantity;
+    int Cost;
+    public void allProducts(String Name, float Rating, float Quantity, int Cost){
+        this.Name = Name;
+        this.Rating = Rating;
+        this.Quantity = Quantity;
+        this.Cost = Cost;
+        System.out.println("Name: "+Name);
+        System.out.println("Rating: "+Rating);
+        System.out.println("No.of item's: "+Quantity);
+        System.out.println("Cost for one Item: "+Cost);
+        if (Quantity == 0){
+            System.out.println("Total Cost is: 0.0");
+        }
+        else{
+            float Total_Cost = Quantity*Cost;
+            System.out.println("Total Cost is: "+Total_Cost);
+        }
+    }
+}
+class Cloths extends Product{
+    public void MenWomenCloths(){
+        Scanner input = new Scanner(System.in);
+        //String Name, float Rating, float Quantity, int Cost
+        String Name = input.nextLine();
+        float Rating = input.nextFloat();
+        float Quantity = input.nextFloat();
+        int Cost = input.nextInt();
+        allProducts(Name,Rating,Quantity,Cost);
+        System.out.println();
+    }
+}
+class Electronic extends Product{
+    public void Laptop(){
+        Scanner input = new Scanner(System.in);
+        String electronicName1 = input.nextLine();
+        float electronicRating1 = input.nextFloat();
+        float electronicQuantity1 = input.nextFloat();
+        int electronicCost1 = input.nextInt();
+        allProducts(electronicName1,electronicRating1,electronicQuantity1,electronicCost1);
+        System.out.println();
+    }
+    public void Tv(){
+        Scanner input = new Scanner(System.in);
+        String electronicName2 = input.nextLine();
+        float electronicRating2 = input.nextFloat();
+        float electronicQuantity2 = input.nextFloat();
+        int electronicCost2 = input.nextInt();
+        allProducts(electronicName2,electronicRating2,electronicQuantity2,electronicCost2);
+        System.out.println();
+    }
+}
+class Grocery extends Product{
+    public void Milk() {
+        Scanner input = new Scanner(System.in);
+        String groceryName1 = input.nextLine();
+        float groceryRating1 = input.nextFloat();
+        float groceryQuantity1 = input.nextFloat();
+        int groceryCost1 = input.nextInt();
+        System.out.println("electronic item name:"+groceryName1);
+        System.out.println("electronic item rating:"+groceryRating1);
+        System.out.println("electronic item Quantity:"+groceryQuantity1);
+        System.out.println("electronic item total cost:"+groceryCost1*groceryQuantity1);
+    }
+}
+
+
+public class ExecuteProducts {
+    public static void main(String[] args){
+        Cloths cloths = new Cloths();
+        cloths.MenWomenCloths();
+        System.out.println();
+        Electronic electronic = new Electronic();
+        electronic.Laptop();
+        electronic.Tv();
+        System.out.println();
+        Grocery grocery = new Grocery();
+        grocery.Milk();
+
+
+    }
+}
